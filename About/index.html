@@ -44,6 +44,33 @@
                 </div>
                 <div class="col-5 text-right align-self-center item">
                     <div class="text-right social"><img class="img-fluid pulse animated" src="assets/img/iphone6.png" style="max-width: none;height: 250px;"></div>
+                    <p style="color: var(--light);">Click the button to get your coordinates.</p>
+                    
+                    <button onclick="getLocation()">Try It</button>
+
+                    <canvas id="myCanvas" width="300" height="50" style="border:1px solid #000000;">  
+                        Sorry!Upgrade your browser. It does not support the HTML5 canvas tag.</canvas>
+
+                    <script>
+                        var c = document.getElementById("myCanvas");  
+                        var ctx = c.getContext("2d");  
+                        ctx.font = "10px Arial";
+  
+                        function getLocation() {
+                          if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(showPosition);
+                          } else { 
+                            ctx.strokeText("Geolocation is not supported by this browser.",10,50);
+                          }
+                        }
+                        
+                        function showPosition(position) {
+                          var s = "Latitude: " + position.coords.latitude + 
+                          "\nLongitude: " + position.coords.longitude;
+                          ctx.strokeText(s,10,50);
+                        }
+                    </script>
+                    
                 </div>
             </div>
         </div>
