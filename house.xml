@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!-- <!DOCTYPE note SYSTEM "note.dtd">
+<note>
+  <to>Abhinav</to>
+  <from>Rathi</from>
+  <heading>RentToday</heading>
+  <body>Property Rental System</body>
+</note> -->
+
+<?xml-stylesheet type = "text/xsl" href = "style.xsl"?>  
+
+<class>  
+   
+   <tenant tid = "393">    
+      <firstname>Dinkar</firstname>
+      <lastname>Kad</lastname>
+      <gender>Male</gender>
+      <phone>8563554458</phone>
+   </tenant>
+   
+   <tenant tid = "493">	 
+      <firstname>Vaneet</firstname>
+      <lastname>Gupta</lastname>
+      <gender>Male</gender>
+      <phone>9585121565</phone>
+   </tenant>
+   
+   <tenant tid = "593">    
+      <firstname>Reena</firstname>
+      <lastname>Singh</lastname>
+      <gender>Female</gender>
+      <phone>9022456865</phone>
+   </tenant>
+
+   <tenant tid = "645">    
+      <firstname>Maggy</firstname>
+      <lastname>Mazzey</lastname>
+      <gender>Female</gender>
+      <phone>7214604414</phone>
+   </tenant>
+
+   <tenant tid = "352">    
+      <firstname>Annamaria</firstname>
+      <lastname>Quantick</lastname>
+      <gender>Female</gender>
+      <phone>6946542815</phone>
+   </tenant>
+
+   <tenant tid = "356">    
+      <firstname>Slade</firstname>
+      <lastname>Commuzzo</lastname>
+      <gender>Male</gender>
+      <phone>3462570638</phone>
+   </tenant>
+
+   <tenant tid = "841">    
+      <firstname>Rutherford</firstname>
+      <lastname>Bythell</lastname>
+      <gender>Male</gender>
+      <phone>1315031931</phone>
+   </tenant>
+
+   <tenant tid = "563">    
+      <firstname>Antonietta</firstname>
+      <lastname>Brunelleschi</lastname>
+      <gender>Female</gender>
+      <phone>7525181029</phone>
+   </tenant>
+
+   <tenant tid = "940">    
+      <firstname>Marty</firstname>
+      <lastname>Attenbrow</lastname>
+      <gender>Male</gender>
+      <phone>1371085197</phone>
+   </tenant>
+
+   <tenant tid = "285">    
+      <firstname>Lynelle</firstname>
+      <lastname>Codi</lastname>
+      <gender>Female</gender>
+      <phone>3366731019</phone>
+   </tenant>
+</class>
