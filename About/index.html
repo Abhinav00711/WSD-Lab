@@ -119,6 +119,69 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <div>
+        <center>
+        <table style="border:0px;">
+            <tr bgcolor = "#9acd32">     
+                <th>First Name</th>   
+                <th>Last Name</th>   
+                <th>Gender</th>   
+                <th>Phone</th>   
+             </tr>
+        
+            <tbody id="demo"></tbody>
+            <tbody id="dynamic_field1"></tbody>
+        </table>
+        <button type="button" name="add1" id="add1" class="btn btn-success" onclick="add()">Add More</button>
+    </center>
+        <script>
+            var tab="";
+        var a=0;
+        var b=0;
+        function loadXMLDoc() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                parser = new DOMParser();
+        xmlDoc = parser.parseFromString(this.responseText,"text/xml");
+        
+        for(var a=0;xmlDoc.getElementsByTagName("firstname")[a].childNodes[0].nodeValue!=null;a++)
+        {
+        b++;
+        
+        document.getElementById("demo").innerHTML +="<tr id=row"+a+"></td><td><input type='text' value="+
+        xmlDoc.getElementsByTagName("firstname")[a].childNodes[0].nodeValue+"></td><td><input type='text' value="+xmlDoc.getElementsByTagName("lastname")[a].childNodes[0].nodeValue+"></td><td><input type='text' value="+xmlDoc.getElementsByTagName("gender")[a].childNodes[0].nodeValue+"></td><td><input type='text' value="+xmlDoc.getElementsByTagName("phone")[a].childNodes[0].nodeValue+"></td><td><button type=button name=remove id="+a+" class=btn btn-danger btn_remove1 onclick=remove(id)>X</button></td></tr>";
+             
+              }
+        
+        
+            }
+          };
+          xhttp.open("GET", "../house.xml", true);
+          xhttp.send();
+        }
+        function remove(id)
+        {
+            document.getElementById("row"+id).remove();
+        }
+        function add()
+        {b++;
+        document.getElementById("dynamic_field1").innerHTML+="<tr id=row"+b+"><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><input type='text'></td><td><button type=button name=remove id="+b+" class=btn btn-danger btn_remove1 onclick=remove(id)>X</button></td> </tr>";
+        }
+        
+        
+        loadXMLDoc();
+        
+        
+        </script>
+        <style type="text/css">
+            table, th, td {
+          border: 0px solid black;
+        }
+        </style>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

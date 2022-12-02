@@ -16,7 +16,8 @@ tell processor to process the entire document with this template.
             will simply render them.   
       -->   
       <html>   
-         <body>  
+         <body>
+            <center>  
             <h2>Tenant</h2>   
             <table border = "1">   
                <tr bgcolor = "#9acd32">   
@@ -47,7 +48,8 @@ tell processor to process the entire document with this template.
                   </tr>   
                   </xsl:if> 
                </xsl:for-each>   
-            </table>   
+            </table>  
+            </center> 
          </body>   
       </html>   
    </xsl:template>    

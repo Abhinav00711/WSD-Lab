@@ -10,6 +10,52 @@
     <link rel="stylesheet" href="assets/css/registration.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>
+        function disableInput()
+        {
+            document.getElementById("navhome").href="#";
+            document.getElementById("navabout").href="#";
+            var spin = document.getElementById("spinner");
+            spin.style.visibility="visible";
+            var btn = document.getElementById("btn");
+            btn.value="Registering...";
+            btn.disabled=true;
+            btn.style.opacity="0.5";
+        }
+        function enableInput()
+        {
+            document.getElementById("navhome").href="../Home/index.html";
+            document.getElementById("navabout").href="../About/index.html";
+            var spin = document.getElementById("spinner");
+            spin.style.visibility="hidden";
+            var btn = document.getElementById("btn");
+            btn.value="Register";
+            btn.disabled=false;
+            btn.style.opacity="1";
+        }
+        function disableInput1()
+        {
+            document.getElementById("navhome").href="#";
+            document.getElementById("navabout").href="#";
+            var spin = document.getElementById("spinner1");
+            spin.style.visibility="visible";
+            var btn = document.getElementById("btn1");
+            btn.value="Registering...";
+            btn.disabled=true;
+            btn.style.opacity="0.5";
+        }
+        function enableInput1()
+        {
+            document.getElementById("navhome").href="../Home/index.html";
+            document.getElementById("navabout").href="../About/index.html";
+            var spin = document.getElementById("spinner1");
+            spin.style.visibility="hidden";
+            var btn = document.getElementById("btn1");
+            btn.value="Register";
+            btn.disabled=false;
+            btn.style.opacity="1";
+        }
+    </script>
 </head>
 
 <body>
@@ -49,120 +95,133 @@
                                 <h3 class="register-heading">Register as an Owner</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" maxlength="10" minlength="10" placeholder="Phone *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label>Gender *&nbsp;&nbsp;</label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender1" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender1" value="female">
-                                                    <span>Female </span> 
-                                                </label>
+                                        <form id="ownerform" name="ownerform">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Name *" value="" name="name" required/>
                                             </div>
-                                        </div>
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" maxlength="10" minlength="10" placeholder="Phone *" pattern="[0-9]{10}" title="Ten Digits" value="" name="contact" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" minlength="6" placeholder="Password *" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Weak Password" value="" name="password" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control"  placeholder="Confirm Password *" value="" name="cpassword" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="maxl">
+                                                    <label>Gender *&nbsp;&nbsp;</label>
+                                                    <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="Male" checked required>
+                                                    <span> Male </span> 
+                                                    </label>
+                                                    <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="Female" required>
+                                                    <span>Female </span> 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="hidden" class="form-control" placeholder="" value="" id="hidden" name="hidden"/>
+                                            </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Owner ID *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Property Type</option>
-                                                <option>Flat</option>
-                                                <option>PG</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="myfile">Upload Address Proof:</label>
-                                            <input type="file" class="form-control" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Username *" value="" name="username" required/>
                                     </div>
+                                    <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email *" value="" name="email" required/>
+                                    </div>
+                                    <div class="form-group">
+                                    <select class="form-control" name="prop_type" required>
+                                    <option class="hidden" value="" selected disabled>Please select your Property Type</option>
+                                    <option name="flat" value="Flat">Flat</option>
+                                    <option name="pg" value="PG">PG</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="myfile">Upload Address Proof:</label>
+                                    <input type="file" accept="image/*,.pdf" class="form-control" value="" id="address_proof" name="address_proof"/>
+                                    </div>
+                                    <div class="buttonbox"> 
+                                    <input type="submit" id="btn" class="btnRegister" value="Register"> <i id="spinner" class="spinner-grow" style="visibility:hidden;margin-top: 10%;color:#6F42C1;"></i></input>
+                                    </div>
+                                    </div>
+                                </div>
+                                </form>
                                 </div>
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Register as a Tenant</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Tenant ID *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" maxlength="10" minlength="10" placeholder="Phone *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="3" minlength="3" class="form-control" placeholder="Age *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Guardian Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Guardian Age *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label>Gender *&nbsp;&nbsp;</label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
-                                                </label>
+                                        <form id="tenantform" name="tenantform">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Name *" value="" name="name1" required/>
                                             </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Role</option>
-                                                <option>Student</option>
-                                                <option>Faculty</option>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Username *" value="" name="username1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" maxlength="10" minlength="10" placeholder="Phone *" pattern="[0-9]{10}" value="" name="contact1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email *" value="" name="email1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" maxlength="3" minlength="2" class="form-control" placeholder="Age *" value="" name="age1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Guardian Name *" value="" name="guardian_name1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" maxlength="10" minlength="10" placeholder="Guardian Contact *" pattern="[0-9]{10}" value="" name="guardian_contact1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="maxl">
+                                                    <label>Gender *&nbsp;&nbsp;</label>
+                                                    <label class="radio inline"> 
+                                                    <input type="radio" name="gender1" value="Male" checked required>
+                                                    <span> Male </span> 
+                                                    </label>
+                                                    <label class="radio inline"> 
+                                                    <input type="radio" name="gender1" value="Female" required>
+                                                    <span>Female </span> 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" name="password1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" name="cpassword1" value="" required/>
+                                            </div>
+                                            <div class="form-group">
+                                            <select class="form-control" name="role1" required>
+                                            <option class="hidden" value="" selected disabled>Please select your Role</option>
+                                            <option name="student1" value="Student">Student</option>
+                                            <option name="faculty1" value="Faculty">Faculty</option>
                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Residence City *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Residence State *" value="" />
-                                        </div>
-                                        <div class="form-group">
+                                            </div>
+                                            <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Residence City *" value="" name="city1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Residence State *" value="" name="state1" required/>
+                                            </div>
+                                            <div class="form-group">
                                             <label for="myfile">Upload ID Proof:</label>
-                                            <input type="file" class="form-control" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
-                                    </div>
+                                            <input type="file" accept="image/*,.pdf" class="form-control" value="" id="id_proof1" name="id_proof1" required/>
+                                            </div>
+                                            <div class="form-group">
+                                            <input type="hidden" class="form-control" placeholder="" value="" id="hidden1" name="hidden1"/>
+                                            </div>
+                                            <div class="buttonbox"> 
+                                            <input type="submit" id="btn1" class="btnRegister" value="Register"> <i id="spinner1" class="spinner-grow" style="visibility:hidden;margin-top: 10%;color:#6F42C1;"></i></input>
+                                            </div>
+                                        </form>
                                 </div>
                             </div>
                         </div>
@@ -171,6 +230,110 @@
 
             </div>
             <br><br>
+            <!-- <script src="reg.js"></script> -->
+        <script src="reg1.js"></script>
+        <script>
+            function formValidation()
+            {
+                var uname = document.ownerform.name;
+                //var ucontact = document.ownerform.contact;
+                var pass = document.ownerform.password;
+                var cpass = document.ownerform.cpassword;
+                //var ugender = document.ownerform.gender;
+                var usname = document.ownerform.username;
+                //var uemail = document.ownerform.email;
+                
+                if(allLetter(uname))
+                {
+                    if(repeat_pass(pass,cpass))
+                    {
+                        if (alphanumeric(usname))
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            function allLetter(uname)
+            { 
+                var letters = /^([a-zA-Z])$/;
+                if(uname.value.trim().match(letters))
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Invalid Name");
+                    uname.focus();
+                    return false;
+                }
+            }
+
+            function alphanumeric(usname)
+            { 
+                var letters = /^[0-9a-zA-Z]+$/;
+                if(usname.value.trim().match(letters))
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Username must have alphanumeric characters only!");
+                    usname.focus();
+                    return false;
+                }
+            }
+            //Check error
+            function repeat_pass(passid,rpassid)
+            {
+                if(passid.value.trim().localeCompare(rpassid.value) == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Password do not match");
+                    rpassid.focus();
+                    return false;
+                }
+            }
+            //Validation
+            
+            var myForm = document.getElementById('ownerform');
+            var myForm1 = document.getElementById('tenantform');
+
+            myForm.onsubmit = function(event)
+            {
+                disableInput();
+                event.preventDefault();
+                if(myForm.checkValidity()){
+                    if(formValidation()){
+                        alert("Validation Successful");
+                    } else {
+                        enableInput();
+                    }
+                } else {
+                    enableInput();
+                }
+            }
+
+            myForm1.onsubmit = function(event)
+            {
+                disableInput1();
+                event.preventDefault();
+                if(myForm1.checkValidity()){
+                    if(formValidation1()){
+                        alert("Validation Successful");
+                    } else {
+                        enableInput1();
+                    }
+                } else {
+                    enableInput1();
+                }
+            }
+        </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
