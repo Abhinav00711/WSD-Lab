@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+
+    <!--AngularJS-->
+    <script data-require="angularjs@1.5.8" data-semver="1.5.8" src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
+    <script data-require="angular-route@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
+  </head>
+
+  <body ng-app="Productportfolio">
+
+  <ul>
+    <li>
+      <a ng-href="#home">Home</a>
+    </li>
+    <li>
+      <a ng-href="#private">Private</a>
+    </li>
+  </ul>
+
+    <ng-view></ng-view>
+
+    <!--own js -->
+    <script src="app.js"></script>
+  </body>
+
+</html>
+
+
+var myApp = angular.module('Productportfolio', ['ngRoute']);
+
+myApp.controller('ProductCtrl', ['$scope',function ($scope) {
+  var vm = this;
+}]);
+
+myApp.config(['$routeProvider', function ($routeProvider) {
+
+        $routeProvider
+            .when('/home', {
+                templateUrl: 'home.html',
+                controller: 'ProductCtrl'
+            })
+
+            .when('/private', {
+                templateUrl: 'private.html',
+                controller: 'ProductCtrl'
+            })
+
+            .otherwise({
+                redirectTo: '/home',
+                controller: 'ProductCtrl'
+            });
+}]);
